@@ -1,0 +1,13 @@
+<h3>Total results: <%= search_facade.total_results %></h3>
+
+<% search_facade.stations.each do |station| %>
+  <section class="station">
+    <strong class="name">Station Name: <%= station.name %></strong>
+    <ul>
+      <li class="address">Address: <%= station.address %></li>
+      <li class="fuel_types">Fuel Types: <%= station.fuel_types %></li>
+      <li class="distance">Distance From Search Location: <%= station.distance %></li>
+      <li class="access_times">Access Info: <%= station.access_times %></li>
+    </ul>
+  </section><br/>
+<% end %>
