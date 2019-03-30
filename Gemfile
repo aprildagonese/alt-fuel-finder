@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '5.1.4'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.5'
 gem 'sass-rails', '~> 5.0.6'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'uglifier', '>= 1.3.0'
@@ -15,6 +15,8 @@ gem 'figaro'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'vcr'
+  
 end
 
 group :development do
@@ -27,4 +29,3 @@ group :test do
   gem 'webmock'
   gem 'capybara'
 end
-
