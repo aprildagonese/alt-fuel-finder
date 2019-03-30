@@ -15,13 +15,7 @@ class SearchFacade
   end
 
   def get_stations
-    # response = Faraday.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?limit=15&api_key=PUHb1tf8gyDhdoJISXBYpNgKrJ7xno0qjdfg2fnH&radius=5.0&fuel_type=ELEC,LPG&location=#{@zip}&access=public&status_code=E")
-    # raw_data = JSON.parse(response.body, symbolize_names: true)
-
-    service = NrelService.new(@zip)
-    data = service.get_location_data
+    NrelService.new.get_stations_by_location(@zip)
   end
 
-  private
-  attr_reader :zip
 end

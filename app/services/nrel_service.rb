@@ -1,15 +1,12 @@
 class NrelService
-  def initialize(zip)
-    @zip = zip
+
+  def get_stations_by_location(zip)
+    url = "/v1/nearest.json?location=#{zip}"
+    get_alt_fuel_json(url)
   end
 
-  def get_location_data
-    url = "/api/alt-fuel-stations/v1/nearest.json?location=#{@zip}"
-    get_json(url)
-  end
-
-  def get_json(url)
-    response = conn.get(url)
+  def get_alt_fuel_json(url = "")
+    response = conn.get("/api/alt-fuel-stations#{url}")
     JSON.parse(response.body, symbolize_names: true)
   end
 
@@ -24,6 +21,4 @@ class NrelService
     end
   end
 
-  private
-  attr_reader :zip
 end
